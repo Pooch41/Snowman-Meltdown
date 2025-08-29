@@ -39,11 +39,12 @@ def play_game():
     guessed_word = ""
 
     while True:
+
+        guessed_word = display_game_state(mistakes, secret_word, guessed_letters)
+
         if guessed_word == secret_word: #break out before displaying snowman again, player wins
             print("You have saved the snowman!")
             break
-
-        guessed_word = display_game_state(mistakes, secret_word, guessed_letters)
 
         if mistakes == (len(aa.STAGES) - 1): #Only hat left of the snowman, player loses
             print("The snowman has melted!")
@@ -59,3 +60,4 @@ def play_game():
             guessed_letters.append(guess)
         else:
             mistakes += 1
+
